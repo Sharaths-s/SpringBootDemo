@@ -1,21 +1,32 @@
 package com.practice.springboot.demo.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
+@NoArgsConstructor
+@Data
+@AllArgsConstructor
+@ToString
 public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long departmentID;
+    @NotBlank(message = "Please add department Name")
     private String departmentName;
     private String departmentAddress;
     private String departmentCode;
 
-    public Department(long departmentID, String departmentName, String departmentAddress, String departmentCode) {
+    /*public Department(long departmentID, String departmentName, String departmentAddress, String departmentCode) {
         this.departmentID = departmentID;
         this.departmentName = departmentName;
         this.departmentAddress = departmentAddress;
@@ -64,6 +75,6 @@ public class Department {
     }
 
     public void setDepartmentCode(String departmentCode) {
-        this.departmentCode = departmentCode;
-    }
+        this.departmentCode = departmentCode;}*/
+
 }
